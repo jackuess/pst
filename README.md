@@ -16,6 +16,7 @@ Test suite example
 
 **suite**
 
+```sh
 	#!/bin/sh
 
 	SUITE=1 . pst.sh
@@ -23,65 +24,73 @@ Test suite example
 	./failing.test
 	./invalid.test
 	./passing.test
+```
 
 **failing.test**
 
-	#!/bin/sh
+```sh
+#!/bin/sh
 
-	. pst.sh"
+. pst.sh"
 
-	return_1() {
-		echo 1
-	}
+return_1() {
+	echo 1
+}
 
-	say Test that 1 and 1 are equal
-	assert 1 -eq 1
-	say Test that 1 and 2 are also equal
-	assert 1 -eq 2
-	say Test that my function returns 2
-	assert '$(return_1)' -eq 2
-	say Test that my function returns 2
-	assert 2 -eq '$(return_1)'
-	say Test that my function returns 1
-	assert '$(return_1)' -eq 1
+say Test that 1 and 1 are equal
+assert 1 -eq 1
+say Test that 1 and 2 are also equal
+assert 1 -eq 2
+say Test that my function returns 2
+assert '$(return_1)' -eq 2
+say Test that my function returns 2
+assert 2 -eq '$(return_1)'
+say Test that my function returns 1
+assert '$(return_1)' -eq 1
+```
 
 **invalid.test**
 
-	#!/bin/sh
+```sh
+#!/bin/sh
 
-	. pst.sh"
+. pst.sh"
 
-	return_1() {
-		echo 1
-	}
+return_1() {
+	echo 1
+}
 
-	teardown() {
-		dbg Run teardown
-	}
+teardown() {
+	dbg Run teardown
+}
 
-	assert 1 -eq 1
-	assert 1 -eq 2
-	assert '$(return_1)' -eq 2
-	false
-	assert '$(return_1)' -eq 1
+assert 1 -eq 1
+assert 1 -eq 2
+assert '$(return_1)' -eq 2
+false
+assert '$(return_1)' -eq 1
+```
 
 
 **passing.test**
 
-	#!/bin/sh
+```sh
+#!/bin/sh
 
-	. pst.sh"
+. pst.sh"
 
-	return_1() {
-		echo 1
-	}
+return_1() {
+	echo 1
+}
 
-	assert 1 -eq 1
-	dbg DBG
-	assert '$(return_1)' -eq 1
+assert 1 -eq 1
+dbg DBG
+assert '$(return_1)' -eq 1
+```
 
 **output (sans pretty colors)**
 
+```sh
 	$ ./suite -v
 	SUITE suite
 
@@ -116,6 +125,7 @@ Test suite example
 	TEST invalid : Invalid (passed 1/3 assertions)
 	TEST passing : Passed (passed 2/2 assertions)
 	Total passing/failing/invalid: 1/1/1
+```
 
 API
 ---
