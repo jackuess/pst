@@ -1,0 +1,18 @@
+#!/bin/sh
+
+. "$(dirname "$0")/../pst.sh"
+
+return_1() {
+	echo 1
+}
+
+say Test that 1 and 1 are equal
+assert 1 -eq 1
+say Test that 1 and 2 are also equal
+assert 1 -eq 2
+say Test that my function returns 2
+assert '$(return_1)' -eq 2
+say Test that my function returns 2
+assert 2 -eq '$(return_1)'
+say Test that my function returns 1
+assert '$(return_1)' -eq 1

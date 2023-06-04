@@ -1,0 +1,8 @@
+#!/bin/sh
+
+cd "$(dirname "$0")"
+SUITE=1 . ../pst.sh
+
+./failing.test
+./invalid.test --param=foo
+./passing.test

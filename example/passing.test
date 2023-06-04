@@ -1,0 +1,11 @@
+#!/bin/sh
+
+. "$(dirname "$0")/../pst.sh"
+
+return_1() {
+	echo 1
+}
+
+assert 1 -eq 1
+dbg DBG
+assert '$(return_1)' -eq 1

@@ -1,0 +1,17 @@
+#!/bin/sh
+
+. "$(dirname "$0")/../pst.sh"
+
+return_1() {
+	echo 1
+}
+
+teardown() {
+	dbg Run teardown
+}
+
+assert 1 -eq 1
+assert 1 -eq 2
+assert '$(return_1)' -eq 2
+false
+assert '$(return_1)' -eq 1
