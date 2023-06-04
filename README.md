@@ -17,13 +17,13 @@ Test suite example
 **suite**
 
 ```sh
-	#!/bin/sh
+#!/bin/sh
 
-	SUITE=1 . pst.sh
+SUITE=1 . ./pst.sh
 
-	./failing.test
-	./invalid.test
-	./passing.test
+./failing.test
+./invalid.test
+./passing.test
 ```
 
 **failing.test**
@@ -31,7 +31,7 @@ Test suite example
 ```sh
 #!/bin/sh
 
-. pst.sh"
+. ./pst.sh
 
 return_1() {
 	echo 1
@@ -54,7 +54,7 @@ assert '$(return_1)' -eq 1
 ```sh
 #!/bin/sh
 
-. pst.sh"
+. ./pst.sh
 
 return_1() {
 	echo 1
@@ -77,7 +77,7 @@ assert '$(return_1)' -eq 1
 ```sh
 #!/bin/sh
 
-. pst.sh"
+. ./pst.sh
 
 return_1() {
 	echo 1
