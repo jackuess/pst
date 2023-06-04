@@ -88,9 +88,8 @@ dbg DBG
 assert '$(return_1)' -eq 1
 ```
 
-**output (sans pretty colors)**
-
-```sh
+**output**
+<!--
 	$ ./suite -v
 	SUITE suite
 
@@ -125,7 +124,8 @@ assert '$(return_1)' -eq 1
 	TEST invalid : Invalid (passed 1/3 assertions)
 	TEST passing : Passed (passed 2/2 assertions)
 	Total passing/failing/invalid: 1/1/1
-```
+-->
+![](/capture.png)
 
 API
 ---
